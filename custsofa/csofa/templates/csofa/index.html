@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="csofa">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'csofa/style.css' %}"/>
+    <script data-require="angular.js@" src="{% static 'csofa/angular.min.js' %}"> </script>
+    <script>
+        sofa = {{ data|safe }}
+        selectBar = {
+            "selected_option": "Size",
+            "options": sofa[4].size
+        }
+    </script>
+    <script src="{% static 'csofa/script.js' %}"></script>
+</head>
+<body ng-controller="MainController">
+    {% verbatim %}
+    <section>
+        <div class="imageHolder">
+            <img id="arm" class="c1" src="{{sofa[0].arm.image}}"/>
+            <img id="back" class="c1" src="{{sofa[1].back.image}}"/>
+            <img id="leg" class="c1" src="{{sofa[2].leg.image}}"/>
+            <img id="pipe" class="c1" src="{{sofa[3].pipe.image}}">
+            <div style="margin-top:55%;margin-left:65%;font-size:xx-large">Price = Rs. {{ sofa[5].price }}/- </div>
+        </div>
+        <div class="toolBarHolder">
+            <form>
+                <div class="tools" ng-repeat="option in tooloptions" ng-click="getSelected(option)">{{ option }}</div>
+            </form>
+        </div>
+    </section>
+    <form>
+        <div class="selectBarHolder">
+            <ul class="selectBar">
+                <li ng-repeat="selectItem in selectBar.options" ng-click="setSelected(selectItem)">
+                    <img src="{{selectItem.image}}" title="{{selectItem.name}}"/>
+                </li>
+            </ul>
+        </div>
+    </form>
+    {% endverbatim %}
+</body>
+</html>

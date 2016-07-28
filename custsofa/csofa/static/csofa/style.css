@@ -1,0 +1,74 @@
+.c1 {
+    width: 74%;
+    height: auto;
+    position: absolute;
+    float:left;
+    display: block;
+    margin-left: -150px
+}
+
+section {
+	width: 95%;
+    height: 500px;
+    background: aqua;
+    margin: auto;
+    padding: 10px;
+}
+
+.toolBarHolder {
+    margin-left: 15%;
+    height: 500px;
+}
+
+.imageHolder{
+	width: 80%;
+    height: 500px;
+    background: yellow;
+    float: left;
+}
+
+.tools {
+    margin-left: 76.5%;
+    width: 24.6%;
+    height: 30px;
+    border: 1px solid black;
+    margin-top: 21px;
+    font-size: x-large;
+    font-style: oblique;
+    text-align: -webkit-center;
+    background: lightgreen;
+}
+
+.selectBarHolder{
+    position: relative;
+    height: 230px;
+    width: 95%;
+    background: orange;
+    margin: auto;
+    padding: 10px;
+}
+
+.selectBar {
+    margin: auto;
+    height: 230px;
+    width: 95%;
+    overflow-x: auto;
+}
+.selectBar > li{
+  display: inline;
+}
+
+.selectBar > li > img{
+  width: 30%;
+  height: 200px;
+  border: 2px solid red;
+  background: white;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="csofa">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'csofa/style.css' %}"/>
+    <script data-require="angular.js@" src="{% static 'csofa/angular.min.js' %}"> </script>
+    <script>
+        furniture = {{ data|safe }}
+    </script>
+    <script src="{% static 'csofa/script1.js' %}"></script>
+</head>
+<body ng-controller="MainController">
+    {% verbatim %}
+    <section>
+        <div class="imageHolder">
+
+            <img ng-repeat="(comp,comp_info) in furniture.components"  id="{{comp}}" class="c1" src="{{comp_info.properties.image}}"/>
+            <div style="margin-top:55%;margin-left:65%;font-size:xx-large">Price = Rs. {{ furniture.price }}/- </div>
+        </div>
+        <div class="toolBarHolder">
+            <form>
+                <div class="tools" ng-repeat="(option,val) in furniture.toolOptions" ng-click="getSelected(val)">{{ option }}</div>
+            </form>
+        </div>
+    </section>
+    <form>
+        <div class="selectBarHolder">
+            <ul class="selectBar">
+                <li ng-repeat="selectItem in furniture.selectBar.value" ng-click="setSelected(selectItem,selectItem)">
+                    <img src="{{ selectItem.image }}" title="{{ selectItem.name }}"/>
+                </li>
+            </ul>
+        </div>
+    </form>
+    {% endverbatim %}
+</body>
+</html>
